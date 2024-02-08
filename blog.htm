@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <title>blog-Tophe</title>
+</head>
+<body>
+    <header id="header" class="section-header">
+        <div class="sep">
+            <a href="./index.htm" class="logo">
+                Tophe
+            </a>
+        </div>
+        
+    
+        <nav id="navbar" class="navbar">
+            <div class="container-nav">
+                <ul>
+                    <li><a class="nav-link hide-on-mobile" href="./index.htm" class="active">Home</a></li>
+                    <li><a class="nav-link hide-on-mobile" href="./about.htm">About</a></li>
+                    <li><a class="nav-link hide-on-mobile" href="./blog.htm">Blogs</a></li>
+                    <li><a class="nav-link  hide-on-mobile" href="./contact.htm">Contact</a></li>
+                    <div id="nav-button hide-on-mobile">
+                        <li><a class="nav-link nav-button btn2 hide-on-mobile" href="./login-sign up.htm">Log In</a></li>
+                    </div>
+                    <li onclick="showSideBar()" class="menu-icon"><a><svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li> 
+                </ul>
+                
+            </div>
+            <ul class="sidebar">
+                <li onclick="hideSideBar()"> <a ><svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a class="nav-link" href="./index.htm" >Home</a></li>
+                <li><a class="nav-link" href="./about.htm" class="active">About</a></li>
+                <li><a class="nav-link" href="./blog.htm">Blogs</a></li>
+                <li><a class="nav-link " href="./contact.htm" >Contact</a></li>
+                <div id="nav-button">
+                    <li><a class="nav-link nav-button btn2" href="./login-sign up.htm">Log In</a></li>
+                </div>
+            </ul>
+      
+        </nav><!-- .navbar -->
+    </header><!-- End Header -->
+
+</body>
+<script src="./js/nav.js"></script>
+</html>
