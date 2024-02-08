@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-SignUp</title>
+    <link rel="stylesheet" href="../css/login-sign up.css">
+</head>
+<body>
+    <main class="full-page">
+        <div id="login-form" class="login-page">
+            <div class="form-box">
+                <div class="button-box">
+                    <div class="btn" id="btn"></div>
+                    <button type="button" onclick="login()" class="toggle-btn " id="log-in-header">Log In</button>
+                    <button type="button" onclick="register()" class="toggle-btn " id="register-header"> Register</button>
+                </div>
+                <form action="" id="login" class="input-group-login">
+                    <div class="cntrl email">
+                        <input type="text" name="" id="l_email" class="input-field" placeholder="Email Id" >
+                        <small class="small">Error</small>
+                    </div>
+                    <div class="cntrl pswd">
+                        <input type="password" name="" id="l_pswd" class="input-field" placeholder="Password" >
+                        <small class="small">Error</small>
+                    </div>
+                    
+                    <div class="sub-btn">
+                        <button onclick="validateInput()" type="submit" class="submit-btn">Log in</button>
+                    </div>
+                    
+                    <div class="footer-text">
+                        <p>Don't have an account? <a onclick="register ()">Sign Up</a></p>
+                    </div>
+                </form>
+                
+                <form action="" class="input-group-register" id="register">
+                    
+                    <div class="cntrl fname">
+                        <input type="text" name="" id="uname" class="input-field" placeholder="Username" required>
+                        <small class="small">Error</small>
+                    </div>
+                    
+                    <div class="cntrl email">
+                        <input type="email" name="" id="s_email" class="input-field" placeholder="Email Id" required>
+                        <small class="small">Error</small>
+                    </div>
+                    <div class="cntrl password">
+                        <input type="password" name="" id="s_pswd" class="input-field" placeholder="Password" required>
+                        <small class="small">Error</small>
+                    </div>
+                    <div class="cntrl conf-password">
+                        <input type="password" name="" id="conpswd" class="input-field" placeholder="Confirm Password" required>
+                        <small class="small">Error</small>
+                    </div>
+                    <div class="sub-btn">
+                        <button onclick="validateInput()" type="submit" class="submit-btn">Register</button>
+                    </div>
+                    
+                    <div class="footer-text">
+                        <p>Have an account? <a onclick="login ()">Log in</a></p>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </main>
+    <script src="../js/login-signup.js"></script>
+</body>
+</html>

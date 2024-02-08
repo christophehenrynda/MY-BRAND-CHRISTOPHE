@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tophe-Contact Me</title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/nav.css">
+</head>
+<body>
+    <header id="header" class="section-header">
+        <div class="sep">
+            <a href="index.html" class="logo">
+                Tophe
+            </a>
+        </div>
+        
+    
+        <nav id="navbar" class="navbar">
+            <div class="container-nav">
+                <ul>
+                    <li><a class="nav-link hide-on-mobile" href="#" class="active">Home</a></li>
+                    <li><a class="nav-link hide-on-mobile" href="#">About</a></li>
+                    <li><a class="nav-link hide-on-mobile" href="contact.html">Portfolio</a></li>
+                    <li><a class="nav-link  hide-on-mobile" href="get-a-quote.html">Contact</a></li>
+                    <div id="nav-button hide-on-mobile">
+                        <li><a class="nav-link nav-button btn2 hide-on-mobile" href="get-a-quote.html">Log In</a></li>
+                    </div>
+                    <li onclick="showSideBar()" class="menu-icon"><a><svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li> 
+                </ul>
+                
+            </div>
+            <ul class="sidebar">
+                <li onclick="hideSideBar()"> <a ><svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a class="nav-link" href="#" class="active">Home</a></li>
+                <li><a class="nav-link" href="#">About</a></li>
+                <li><a class="nav-link" href="">Blogs</a></li>
+                <li><a class="nav-link " href="">Contact</a></li>
+                <div id="nav-button">
+                    <li><a class="nav-link nav-button btn2" href="get-a-quote.html">Log In</a></li>
+                </div>
+            </ul>
+      
+        </nav><!-- .navbar -->
+    </header><!-- End Header -->
+    <main>
+        <div class="contact">
+            <div class="contact-header" >
+                <h2>Leave a message</h2>
+            </div>
+            <div class="message">
+                <div class="inputs">
+                    <table>
+                        <tr>
+                            <td> 
+                                <label for="name">NAME</label>
+                            </td>
+                            <td>
+                                <input class="input" type="text" name="name" id="name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="email">EMAIL</label>
+                            </td>
+                            <td>
+                                <input class="input" type="email" name="email" id="email">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="message">MESSAGE</label>
+                            </td>
+                            <td>
+                                <input class="input" type="text" name="message" id="message">
+                            </td>
+                        </tr>
+                    </table>                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="intersection">
+            <p>-<b>OR</b>-</p>
+        </div>
+        <div class="social">
+            <div class="social-header">
+                <h2>Follow and leave me a message on</h2>
+            </div>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-square-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://kit.fontawesome.com/1f8d4d3fe1.js" crossorigin="anonymous"></script>
+<script src="../js/nav.js"></script>
+</html>

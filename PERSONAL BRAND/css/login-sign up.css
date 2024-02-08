@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    color: white;
+}
+.full-page {
+    background-color: #030C11;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+/*#login-form{
+    display: none;
+}*/
+.form-box {
+    opacity: 0.8;
+    width: 450px;
+    height: 560px;
+    position: relative;
+    margin: 2% auto;
+    background-color: #030C11; 
+    padding: 10px;
+    overflow: hidden;
+    border: 2px solid #f18805;
+    border-radius: 30px;
+}
+.button-box {
+    
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    
+    border-radius: 30px;
+}
+.button-box button {
+    color: #030C11;
+}
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: #87A330;
+    border-radius: 30px;
+    transition: .5s;
+}
+#log-in-header {
+    color: #030C11
+}
+#register-header {
+    color: #87A330;
+}
+.input-group-login {
+    z-index: 100;
+    top: 150px;
+    position: absolute;
+    width: 280px;
+    transition: 1s;
+}
+.input-group-register {
+    top: 120px;
+    position: absolute;
+    width: 280px;
+    transform: 1s;
+}
+
+::placeholder{
+    color: #fff;
+    opacity: 0.6;
+}
+.input-field {
+    width: 100%;
+    padding: 15px ;
+    margin: 5px 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    outline: none;
+    background: #1e1e1e;
+    border-radius: 30px;
+    
+}
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin-top: auto;
+    background: #F18805;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+.sub-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+}
+#login {
+    left: 50px;
+}
+#login input {
+    color: white;
+    font-size: 15px;
+}
+#register {
+    left: 450px;
+}
+#register input{
+    color: white;
+    font-size: 15px;
+}
+small {
+    position: absolute;
+    margin: 3px;
+    display: none;
+}
+.cntrl.success input{
+    border-bottom: 2px solid #1aa71a;
+}
+.cntrl.error input{
+    border-bottom: 2px solid #ff0800;
+}
+.footer-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+.footer-text p a {
+    color: #87A330;
+}
