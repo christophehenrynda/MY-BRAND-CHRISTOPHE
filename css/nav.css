@@ -82,6 +82,7 @@ li a {
 .btn2{
     background-color: #87A330;
     width: 100px;
+    text-align: center;
 }
 #nav-button {
     display: flex;

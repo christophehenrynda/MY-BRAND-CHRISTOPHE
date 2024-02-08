@@ -39,6 +39,12 @@ label {
     font-weight: 800;
     font-size: 18px;
 }
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .input {
     width: 500px;
     padding: 15px ;
@@ -55,6 +61,17 @@ label {
 }
 #message{
     height: 100px;
+}
+.inputs button {
+    text-align: center;
+    color: #030C11;
+    font-size: 18px;
+    background-color: #87A330;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .intersection p{
     font-size: 20px;
