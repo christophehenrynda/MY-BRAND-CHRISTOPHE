@@ -16,6 +16,8 @@ main {
    padding-top: 5vh;
    padding-left: 120px;
    padding-right: 120px;
+   display: flex;
+   justify-content: center;
 }
 .top{
     width: 100%;
@@ -99,7 +101,7 @@ main {
 
 }
 .introduction {
-    padding-bottom: 50px;
+    padding-bottom: 70px;
 }
 .intro {
     font-size: 36px;
@@ -116,7 +118,7 @@ main {
     align-items: center;
     justify-content: space-between;
     padding-top: 5px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 .why-words {
     width: 290px;
@@ -167,7 +169,7 @@ main {
     padding: 20px;
     padding-left: 30px;
     padding-right: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
 }
 
 .about-header p{
@@ -197,7 +199,7 @@ main {
 .skill-header {
     padding-top: 30px;
     padding-bottom: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 .skill-header p{
     font-size: 24px;
@@ -215,15 +217,15 @@ main {
     justify-content: space-around;
     flex-direction: column;
     border-radius: 30px;
-    border: 5px #F18805 solid;
+    border: 3px #F18805 solid;
     padding: 10px;
-    height: 200px;
-    width: 200px;
+    height: 190px;
+    width: 190px;
     padding-left: 10px; 
     padding-right: 10px;
 }
 .skill-card-icon i{
-    font-size: 80px;
+    font-size: 75px;
     color: #F18805;
 }
 .blogs {
@@ -231,7 +233,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding-top: 80px;
+    padding-top: 100px;
     padding-bottom: 30px;
 }
 .blog-header{
@@ -276,6 +278,7 @@ main {
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 5px;
+    font-weight: 900;
 }
 .blog-describe-stat {
     display: flex;
@@ -298,7 +301,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding-top: 50px;
+    padding-top: 150px;
 }
 .project-cards {
     width: 100%;
@@ -355,11 +358,12 @@ color: #87A330;
 }
 footer {
     width: 100%;
-    padding: 70px 30px 20px;
+    padding: 30px 30px 20px 0px;
+    margin-top: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 10px #52796F;
+    border-top: 3px solid #52796F;
 }
 footer i{
     color: #52796F;
