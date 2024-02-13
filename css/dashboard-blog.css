@@ -16,6 +16,7 @@ main {
    padding-top: 0vh;
    padding-left: 240px;
    padding-right: 120px;
+   background-color: #030C11;
 }
 .add-blog-btn {
     margin-top: 2vh;
@@ -26,7 +27,6 @@ main {
 }
 .add-blog-btn button {
     margin-right: 80px;
-    
     border: none;
     border-radius: 30px;
     padding: 10px 20px 10px 20px;
@@ -155,15 +155,104 @@ table tr td{
     border-radius: 30px;
     padding: 10px 5px 10px 5px;
 }
+.update-blog-popup{
+    border-radius: 30px;
+    background-color: #1e1e1e;
+    height: 590px;
+    width: 600px;
+    padding: 30px;
+    z-index: 999;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    display: none;
+    transform: translate(-50%, -50%) scale(0.1);
+    transition: all 0.8s ease
+}
+.update-blog-popup.active {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%;
+    left: 50%;
+}
+.update-blog-popup-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.update-blog-popup-inputs input {
+    width: 100%;
+    padding: 15px ;
+    margin: 5px 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    outline: none;
+    background: #6b3535;
+    border-radius: 50px;
+}
+::placeholder{
+    color: #fff;
+    opacity: 0.6;
+}
+.update-image-file-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    
+}
+#update-drop-area {
+    width: 500px;
+    height: 300px;
+    padding: 30PX;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 20px;
+}
+.update-image-view {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 2px dashed #bbb5ff;
+    background-color: #9c9c9c;
+}
+.update-image-view i{
+    font-size: 100px;
+    margin-top: 25px;
+    color: #6b3535;
+}
+.update-image-view span {
+    display: block;
+    font-size: 12px;
+    color: #030C11;
+    margin-top: 25px;
+}
+.update-cancel-blog-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+.update-cancel-blog-btn button {
+    border: none;
+    background-color: #87a330;
+    font-weight: 800;
+    border-radius: 30px;
+    padding: 10px 5px 10px 5px;
+}
 header.active, .blog-dashboard.active{
     filter: blur(12px);
 }
-/*responsive*/
-@media(max-width:800px){
-    .add-blog-btn{
-        margin-left:40px;
-    }
+main.active {
+    filter: blur(30px);
+    background-color: #030C11;
 }
+/*responsive*/
+
+
 @media (max-width: 800px){
     main {
         padding-left: 70px;
@@ -171,5 +260,10 @@ header.active, .blog-dashboard.active{
     }
     .logo {
         padding-left: 10px;
+    }
+}
+@media(max-width:768px){
+    .update-blog-popup, .add-blog.active {
+        width: 100%;
     }
 }

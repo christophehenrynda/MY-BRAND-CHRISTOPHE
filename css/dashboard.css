@@ -21,6 +21,7 @@ main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
 }
 .dash-card {
     flex-wrap: wrap;
@@ -78,6 +79,7 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 .summary-card {
     display: flex;
@@ -145,4 +147,24 @@ main {
 }
 .message .summary-card-content-caption h2 {
     font-size: 18px;
+}
+
+/*responsive*/
+@media(max-width:800px){
+    .dash-card{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .logo {
+        padding-left: 10px;
+    }
+}
+@media(max-width:768px){
+    .dashboard-cards {
+        width: 100%;
+    } 
+    .summary-card{
+        width: 100%;
+        overflow: scroll;
+    }
 }

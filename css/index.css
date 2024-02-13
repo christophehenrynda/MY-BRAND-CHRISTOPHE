@@ -6,7 +6,6 @@
     box-sizing: border-box;
     list-style: none;
 }
-
 body {
     background-color: #030C11;
     overflow-x: hidden;
@@ -25,6 +24,7 @@ main {
     align-items: center;
     justify-content: space-between;
     height: 100vh;
+    
 
 }
 .top-left{
@@ -78,28 +78,10 @@ main {
     font-size: 30px;
     
 }
-@media (max-width: 800px) {
-    
-    .top{
-        flex-direction: column;
-    }
-    .top-left {
-        flex-direction: row;
-    }
-    .top-left .btn3{
-        flex-direction: column;
-    }
-    .top-left .social-icons {
-        flex-direction: column;
-    }
-    .introduction {
-        font-size: 22px;
-    }
-    .why-words {
-        width: 300px;
-    }
-
+.top-right {
+    margin-left: 50px;
 }
+
 .introduction {
     padding-bottom: 70px;
 }
@@ -147,6 +129,7 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 .stat-card {
     display: flex;
@@ -162,7 +145,7 @@ main {
 }
 .about-tophe {
     border: 5px #87A330 solid;
-    border-radius: 46px;
+    border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -170,8 +153,8 @@ main {
     padding-left: 30px;
     padding-right: 30px;
     margin-bottom: 70px;
+    margin-top: 30px;
 }
-
 .about-header p{
     font-size: 24px;
     font-weight: 900;
@@ -188,6 +171,54 @@ main {
     font-size: 24px;
     color: #F18805;
 }
+@media (max-width: 800px) {
+    
+    .top{
+        flex-direction: column;
+    }
+    .top-left {
+        flex-direction: column;
+        margin-top: 30px;
+    }
+    .top-left .btn3{
+        flex-direction: column;
+    }
+    .top-left .social-icons {
+        flex-direction: row;
+    }
+    .introduction {
+
+        width: 100%;
+    }
+    
+    .why {
+        width: 100%;
+    }
+    .why-words h2{
+        font-size: 32px;
+    }
+    .why-words p {
+        font-size: 20px;
+    }
+    .stat{
+        width: 100%;
+    }
+    .about-tophe {
+        padding-left: 10px 10px 10px 10px;
+        margin-left: 130px;
+        width: 85%;
+        justify-content: space-around;
+    }
+    .about-word {
+        width: 50%;
+    }
+    .about-link {
+        width: 50%;
+    }
+    .skills {
+        padding-left: 100px;
+    }
+}
 .skills {
     display: flex;
     align-items: center;
@@ -195,6 +226,7 @@ main {
     flex-direction: column;
     width: 100%;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 .skill-header {
     padding-top: 30px;
@@ -370,4 +402,9 @@ footer i{
     padding: 10px;
     margin: 10px;
     font-size: 24px;
+}
+
+/*responsive*/
+@media (max-width: 800px){
+
 }

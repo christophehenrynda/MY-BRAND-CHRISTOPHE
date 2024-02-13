@@ -73,6 +73,61 @@ table tr td{
 .action .fa-delete-left {
     color: red;
 }
+
+/*reply pop up*/
+.message-reply{
+    position: fixed;
+    background-color: #1e1e1e;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 300px;
+    height: 250px;
+    top: 10%;
+    left: 40%;
+    display: none;
+    z-index: 999;
+}
+.message-reply i{
+    padding-bottom: 5px;
+    color: #fff;
+}
+.reply-inputs input{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    outline: none;
+    background: #030C11;
+    border-radius: 30px;
+    height: 100px;
+    color: #fff;
+}
+.reply-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.reply-btn button{
+    border: none;
+    background-color: #87a330;
+    font-weight: 800;
+    border-radius: 30px;
+    padding: 10px 15px 10px 15px;
+}
+main.active, header.active {
+    filter: blur(12px);
+}
+main.active {
+    background-color: #030C11;
+}
+.message-reply.active {
+    display: block;
+}
 /*responsive*/
 @media (max-width: 800px){
     main {
@@ -81,5 +136,10 @@ table tr td{
     }
     .logo {
         padding-left: 10px;
+    }
+}
+@media(max-width:768px){
+    .message-reply {
+        left: 20%;
     }
 }

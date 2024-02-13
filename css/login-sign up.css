@@ -7,21 +7,27 @@
 }
 body {
     color: white;
+    background-color: #030C11;
 }
 .full-page {
+    margin-top: 10vh;
     background-color: #030C11;
     width: 100%;
     height: 100%;
     position: absolute;
 }
+ul{
+    list-style: none;
+}
 /*#login-form{
     display: none;
 }*/
 .form-box {
+    left: 30%;
     opacity: 0.8;
     width: 450px;
-    height: 560px;
-    position: relative;
+    height: 500px;
+    position: fixed;
     margin: 2% auto;
     background-color: #030C11; 
     padding: 10px;
@@ -151,3 +157,18 @@ small {
 .footer-text p a {
     color: #87A330;
 }
+ /*responsive*/
+ @media (max-width: 800px) {
+    .form-box{
+        left: 10%;
+    }
+ }
+ @media(max-width:449px){
+    .form-box{
+        left: 0%;
+        width: 100%;
+    }
+    .login-page {
+        width: 100%;
+    }
+ }

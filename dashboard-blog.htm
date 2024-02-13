@@ -20,8 +20,8 @@
             <div class="container-nav">
                 <ul class="sidebar">
                 
-                    <li class="active"><a class="nav-link" href="./dashboard.htm" ><i class="fa-solid fa-chart-pie"></i><b>Dashboard</b></a></li>
-                    <li><a class="nav-link " href="./dashboard-blog.htm"><i class="fa-solid fa-blog"></i><b>Blogs</b></a></li>
+                    <li ><a class="nav-link" href="./dashboard.htm" ><i class="fa-solid fa-chart-pie"></i><b>Dashboard</b></a></li>
+                    <li class="active"><a class="nav-link " href="./dashboard-blog.htm"><i class="fa-solid fa-blog"></i><b>Blogs</b></a></li>
                     <li><a class="nav-link " href="./dashboard-message.htm"><i class="fa-solid fa-message"></i><b>Messages</b></a></li>
                     <li><a class="nav-link " href=""><i class="fa-solid fa-user"></i><b>Profile</b></a></li>
                     <li><a class="nav-link " href=""><i class="fa-solid fa-arrow-right-from-bracket"></i><b>Log out</b></a></li>
@@ -57,7 +57,7 @@
                     <td class="blog-description">Lorem ipsum dolor sit amet consectetur</td>
                     <td class="date-created">Feb 1, 2024</td>
                     <td class="action">
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-pen-to-square" onclick="update()"></i>
                         <i class="fa-solid fa-delete-left"></i>
                     </td>
                 </tr>
@@ -71,7 +71,7 @@
                     <td class="blog-description">Lorem ipsum dolor sit amet consectetur</td>
                     <td class="date-created">Feb 1, 2024</td>
                     <td class="action">
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-pen-to-square" onclick="update()"></i>
                         <i class="fa-solid fa-delete-left"></i>
                     </td>
                 </tr>
@@ -85,7 +85,7 @@
                     <td class="blog-description">Lorem ipsum dolor sit amet consectetur</td>
                     <td class="date-created">Feb 1, 2024</td>
                     <td class="action">
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-pen-to-square" onclick="update()"></i>
                         <i class="fa-solid fa-delete-left"></i>
                     </td>
                 </tr>
@@ -99,7 +99,7 @@
                     <td class="blog-description">Lorem ipsum dolor sit amet consectetur</td>
                     <td class="date-created">Feb 1, 2024</td>
                     <td class="action">
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-pen-to-square" onclick="update()"></i>
                         <i class="fa-solid fa-delete-left"></i>
                     </td>
                 </tr>
@@ -113,7 +113,7 @@
                     <td class="blog-description">Lorem ipsum dolor sit amet consectetur</td>
                     <td class="date-created">Feb 1, 2024</td>
                     <td class="action">
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-pen-to-square" onclick="update()"></i>
                         <i class="fa-solid fa-delete-left"></i>
                     </td>
                 </tr>
@@ -127,7 +127,7 @@
                     <td class="blog-description">Lorem ipsum dolor sit amet consectetur</td>
                     <td class="date-created">Feb 1, 2024</td>
                     <td class="action">
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-pen-to-square" onclick="update()"></i>
                         <i class="fa-solid fa-delete-left"></i>
                     </td>
                 </tr>
@@ -141,7 +141,7 @@
                     <input type="file" accept="image/*" id="input-file" hidden>
                     <div class="image-view">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
-                        <p>Drag and drop or click here<br>to uplaod image</p>
+                        <p>Drag and drop or click here<br>to upload image</p>
                         <span>Upload any images from Desktop</span>
                     </div>
                 </label>
@@ -149,9 +149,40 @@
             <div class="add-blog-btn">
                 <button>Upload Blog</button>
             </div>
-        </div> 
+        </div>
+        
     </main>
+    <div class="update-blog-popup">
+        <i class="fa-solid fa-xmark" onclick="update()"></i>
+        <div class="update-blog-popup-inputs">
+            <input type="text" name="blog-header-update" id="blog-header-update-input" class="update-inputs" placeholder="Header update">
+            <input type="text" name="blog-description-update" id="blog-description-update-input" class="update-inputs" placeholder="Update description">
+        </div>
+        <div class="update-image-file-input">
+            <label for="update-input-file"  id="update-drop-area">
+                <input type="file" accept="image/*" id="input-file" hidden>
+                <div class="update-image-view">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <p>Drag and drop or click here<br>to upload new image</p>
+                    <span>Upload any images from Desktop</span>
+                </div>
+            </label>
+        </div>
+        <div class="update-cancel-blog-btn">
+            <button>Upload Blog</button>
+        </div>
+    </div> 
 </body>
 <script src="https://kit.fontawesome.com/1f8d4d3fe1.js" crossorigin="anonymous"></script>
 <script src="./js/dashboard-blog.js"></script>
+<script>
+    function update(){
+        let header = document.querySelector('header');
+        header.classList.toggle('active');
+        let main = document.querySelector('main');
+        main.classList.toggle('active');
+        let popUp = document.querySelector('.update-blog-popup');
+        popUp.classList.toggle('active');
+    }
+</script>
 </html>

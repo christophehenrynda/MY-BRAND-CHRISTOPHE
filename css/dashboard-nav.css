@@ -10,7 +10,7 @@ a {
     margin: 0px 0px;
     z-index: 100;
     border-bottom: none ;
-    background-color: transparent;
+    background-color: #030C11;
     opacity: 3px;
 }
 
@@ -18,7 +18,7 @@ a {
     font-size: 40px;
     color: #F18805;
     font-weight: 700;
-    padding-left: 300px;    
+    padding-left: 200px;    
 }
 .sep {
     margin-bottom: 100px;
