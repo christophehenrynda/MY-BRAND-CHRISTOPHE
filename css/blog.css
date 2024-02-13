@@ -17,6 +17,9 @@ main {
    padding-left: 120px;
    padding-right: 120px;
 }
+main.active, header.active{
+    filter:blur(12px);
+}
 .blog-nav {
     width: 100%;
     display: flex;
@@ -90,4 +93,80 @@ main {
 }
 .blog-comments p,.blog-likes p{
     font-size: 22px;
+}
+
+/*popup*/
+.blog-popup{
+    position: fixed;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    height: 500px;
+    width: 50%;
+    top: 10%;
+    left: 25%;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    z-index: 9999;
+}
+.blog-popup-close {
+    top:0;
+    right:10%;
+    z-index:999999;
+    position: fixed;
+}
+.blog-popup.disactive{
+    display: flex;
+}
+.blog-popup-image {
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px 10px 30px 30px;
+    
+}
+.blog-popup-image img{
+    width: 100%;
+    object-fit: cover;
+}
+.lower-section {
+    display: flex;
+    flex-direction: column;
+}
+.blog-popup-likes-comments {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.blog-popup-like{
+    display: flex;
+    margin: 10px 30px 10px 20px;
+}
+.blog-popup-comments{
+    display: flex;
+}
+.blog-popup-like i, .blog-popup-comments i{
+    font-size: 22px;
+    margin-right: 5px;
+}
+.blog-popup-caption{
+    display: flex;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.blog-popup-caption-header {
+    margin-bottom: 15px;
+}
+/* responsive*/
+@media (max-width: 500px){
+    .blog-popup {
+        top: 0;
+        left: 0;
+       height: 100%;
+       width:100%
+    }
 }
