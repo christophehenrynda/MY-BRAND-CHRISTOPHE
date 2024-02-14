@@ -1,25 +1,27 @@
 const x = document.getElementById('login');
 const y = document.getElementById('register');
 const z = document.getElementById('btn');
-const btn_log = document.getElementById('log-in-header');
-const btn_reg = document.getElementById('register-header');
-const uname = document.getElementById('uname');
-const s_email = document.getElementById('s_email');
-const s_pswd = document.getElementById('s_pswd');
-const s_conpswd = document.getElementById('conpswd');
+const buttonLogin = document.getElementById('log-in-header');
+const buttonRegister = document.getElementById('register-header');
+const uName = document.getElementById('uname');
+const signUpEmail = document.getElementById('s_email');
+const registerPassword = document.getElementById('s_pswd');
+const registerPasswordConfirm = document.getElementById('conpswd');
 const form = document.getElementById('form');
-const l_email = document.getElementById('l_email');
-const l_pswd= document.getElementById('l_pswd');
-const l_check= document.getElementById('l_check');
-let bool_check = false;
+const loginEmail = document.getElementById('l_email');
+const loginPassword= document.getElementById('l_pswd');
+const loginCheck= document.getElementById('l_check');
+let boolCheck = false;
 const emailRegex = /^[a-zA-Z0-9.!#$%&'"+/=?^_'{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&]{8,}$/;
 
-document.querySelector("#login").addEventListener("click", (event)=>{
+
+document.querySelector("#login").addEventListener("input", (event)=>{
     event.preventDefault();
     validateInput_login();
 });
 
-document.querySelector("#register").addEventListener("click", (event)=>{
+document.querySelector("#register").addEventListener("input", (event)=>{
     event.preventDefault();
     validateInput_register();
 });
@@ -28,15 +30,15 @@ function register () {
     x.style.left = '-400px';
     y.style.left = '50px';
     z.style.left = '110px';
-    btn_log.style.color = '#87A330';
-    btn_reg.style.color = '#030c11';
+    buttonLogin.style.color = '#87A330';
+    buttonRegister.style.color = '#030c11';
 }
 function login () {
     x.style.left = '50px';
     y.style.left = '450px';
     z.style.left = '0px';
-    btn_log.style.color = '#030c11';
-    btn_reg.style.color = '#87A330';
+    buttonLogin.style.color = '#030c11';
+    buttonRegister.style.color = '#87A330';
 }
 
 /*let modal = document.getElementById('login-form');
@@ -49,24 +51,28 @@ window.onclick = function (event) {
 
 
 function validateInput_login () {
-    if (l_email.value.trim() === "" ){
-        bool_check = true;
-        onError(l_email, "Email cannot be empty");
-    }else if(!emailRegex.test(l_email.value)){
-        bool_check = true;
-        onError(l_email, "Email is not valid");
+    if (loginEmail.value.trim() === "" ){
+        boolCheck = true;
+        onError(loginEmail, "Email cannot be empty");
+    }else if(!emailRegex.test(loginEmail.value)){
+        boolCheck = true;
+        onError(loginEmail, "Email is not valid");
     }else{
-        onSuccess(l_email);
+        onSuccess(loginEmail);
     }
-    if (l_pswd.value.trim() === "" ){
-        bool_check = true;
-        onError(l_pswd, "Password is required");
+    if (loginPassword.value.trim() === ""){
+        boolCheck = true;
+        onError(loginPassword, "Password is required");
+    }else if(!passwordRegex.test(loginPassword.value)) {
+        boolCheck = true;
+        onError(loginPassword, "Password is required");
     }else {
-        onSuccess(l_pswd);
+        onSuccess(loginPassword);
     }
+    
 }
 
-function validateInput_register () {
+/*function validateInput_register () {
     if (fname.value.trim()===""){
         bool_check = true;
         onError( fname, "First Name cannot be empty");
@@ -100,7 +106,7 @@ function validateInput_register () {
     } else {
         onSuccess(s_pswd); 
     }
-}
+}*/
 
 function onSuccess (input){
     let parent = input.parentElement;
@@ -119,6 +125,31 @@ function onError (input, message){
     parent.classList.remove("success");
 }
 
-
-
-
+//correct implementation
+let store = () => {
+    localStorage.setItem("uname", uName.value);
+    localStorage.setItem("email", signUpEmail.value);
+    if (registerPassword.value === registerPasswordConfirm.value) {
+        localStorage.setItem("password", registerPassword.value);
+        x.reset();
+        y.reset();
+        
+    } else {
+        window.alert("Please enter a password again")
+    }
+}
+let check = () => {
+    //stored credentials
+    let storeName = localStorage.getItem("uname");
+    let storedEmail = localStorage.getItem("email");
+    let storedPassword = localStorage.getItem("password");
+    
+    //login credentials
+    if (storedEmail === loginEmail.value && storedPassword === loginPassword.value)  {
+        window.location.href = "./dashboard.htm";
+        x.reset();
+        y.reset();
+    } else {
+        window.alert("Please enter correct email and password")
+    }
+}
