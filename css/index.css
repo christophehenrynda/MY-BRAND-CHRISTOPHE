@@ -144,6 +144,7 @@ main {
     font-size: 24px;
 }
 .about-tophe {
+    width: 100%;
     border: 5px #87A330 solid;
     border-radius: 20px;
     display: flex;
@@ -171,54 +172,7 @@ main {
     font-size: 24px;
     color: #F18805;
 }
-@media (max-width: 800px) {
-    
-    .top{
-        flex-direction: column;
-    }
-    .top-left {
-        flex-direction: column;
-        margin-top: 30px;
-    }
-    .top-left .btn3{
-        flex-direction: column;
-    }
-    .top-left .social-icons {
-        flex-direction: row;
-    }
-    .introduction {
 
-        width: 100%;
-    }
-    
-    .why {
-        width: 100%;
-    }
-    .why-words h2{
-        font-size: 32px;
-    }
-    .why-words p {
-        font-size: 20px;
-    }
-    .stat{
-        width: 100%;
-    }
-    .about-tophe {
-        padding-left: 10px 10px 10px 10px;
-        margin-left: 130px;
-        width: 85%;
-        justify-content: space-around;
-    }
-    .about-word {
-        width: 50%;
-    }
-    .about-link {
-        width: 50%;
-    }
-    .skills {
-        padding-left: 100px;
-    }
-}
 .skills {
     display: flex;
     align-items: center;
@@ -226,7 +180,7 @@ main {
     flex-direction: column;
     width: 100%;
     margin-top: 20px;
-    flex-wrap: wrap;
+    
 }
 .skill-header {
     padding-top: 30px;
@@ -242,6 +196,7 @@ main {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    flex-wrap: wrap;
 }
 .skill-card {
     display: flex;
@@ -267,6 +222,8 @@ main {
     justify-content: space-evenly;
     padding-top: 100px;
     padding-bottom: 30px;
+    width: 100%;
+     
 }
 .blog-header{
     display: flex;
@@ -284,12 +241,14 @@ main {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    flex-wrap: wrap;
 }
 .blog-card {
     display: flex;
     flex-direction: column;
     background-color: #1e1e1e;
     border-radius: 19px;
+    margin-top: 20px;
 
 }
 .blog-image img{
@@ -329,6 +288,7 @@ main {
     font-size: 22px;
 }
 .projects {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -340,6 +300,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 
 }
 .project-card {
@@ -351,6 +312,7 @@ main {
     border-radius: 19px;
     background-size: cover;
     background-repeat: no-repeat;
+    margin-top: 20px;
 }
 #project-card-001 {
     background-image: url(../resources/8machine-_-LhNDEs4MP5w-unsplash.jpg);
@@ -405,6 +367,144 @@ footer i{
 }
 
 /*responsive*/
-@media (max-width: 800px){
+@media (max-width: 800px) {
+    
+    .top{
+        flex-direction: column;
+    }
+    .top-left {
+        flex-direction: column;
+        margin-top: 30px;
+    }
+    .top-left .btn3{
+        flex-direction: column;
+    }
+    .top-left .social-icons {
+        flex-direction: row;
+    }
+    .introduction {
 
+        width: 100%;
+    }
+    
+    .why {
+        width: 100%;
+    }
+    .why-words h2{
+        font-size: 32px;
+    }
+    .why-words p {
+        font-size: 20px;
+    }
+    .stat{
+        width: 100%;
+    }
+    .about-tophe {
+        padding-left: 10px 10px 10px 10px;
+        margin-left: 90px;
+        width: 85%;
+        justify-content: space-around;
+    }
+    .about-word {
+        width: 50%;
+    }
+    .about-link {
+        width: 50%;
+    }
+    .skills {
+        padding-left: 100px;
+    }
+    .blogs{
+        padding-left: 100px;
+    }
+    .blogs-card {
+        margin: 0px;
+    }
+    .projects{
+        padding-left: 70px;
+    }
+}
+@media (max-width: 600px) {
+    
+    .top{
+        flex-direction: column;
+    }
+    .top-left {
+        width: 50%;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+    .top-left .btn3{
+        flex-direction: column;
+        font-size: 20px;
+    }
+    .top-left .social-icons {
+        flex-direction: row;
+        
+        justify-content: space-between;
+    }
+    .introduction {
+        width: 100%;
+        text-align: center;
+        margin-left: 0%;
+    }
+    
+    .why {
+        
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+    .why-words h2{
+        font-size: 32px;
+    }
+    .why-words p {
+        font-size: 20px;
+    }
+    .why-btn button {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+    .stat{
+        margin-left: 0%;
+        width: 100%;   
+    }
+    .stat-card {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    .about-tophe {
+        
+        padding-left: 10px 10px 10px 10px;
+        margin-left: 5%;
+        margin-top: 700px;
+        width: 100%;
+        justify-content: space-around;
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-word {
+        width: 100%;
+        
+    }
+    .about-link {
+        padding-top: 20px;
+        width: 100%;
+    }
+    .skills {
+        padding-left: 100px;
+        
+    }
+    .skill-card {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .blogs{
+        padding-left: 10px;
+    }
+    
+    .projects{
+        padding-left: 10px;
+    }
 }

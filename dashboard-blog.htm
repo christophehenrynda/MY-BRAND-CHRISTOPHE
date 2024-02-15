@@ -184,5 +184,15 @@
         let popUp = document.querySelector('.update-blog-popup');
         popUp.classList.toggle('active');
     }
+    const dropArea = document.getElementById("update-drop-area");
+    const inputFile = document.getElementById("input-file");
+    const imageView = document.querySelector(".update-image-view");
+    inputFile.addEventListener("change", uploadImage);
+    function uploadImage () {
+        let imgLink = URL.createObjectURL(inputFile.files[0]);
+        imageView.style.backgroundImage = `url(${imgLink})`;
+        imageView.textContent = "";
+        imageView.style.border = 0;
+    }
 </script>
 </html>

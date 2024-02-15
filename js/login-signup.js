@@ -72,41 +72,44 @@ function validateInput_login () {
     
 }
 
-/*function validateInput_register () {
-    if (fname.value.trim()===""){
-        bool_check = true;
-        onError( fname, "First Name cannot be empty");
+function validateInput_register () {
+    if (uName.value.trim()===""){
+        boolCheck = true;
+        onError( uName, "First Name cannot be empty");
     }else {
-        onSuccess(fname);
+        onSuccess(uName);
     }
-    if (lname.value.trim()===""){
-        bool_check = true;
-        onError(lname, "Last Name cannot be empty");
-    }else {
-        onSuccess(lname);
-    }
-    if (s_email.value.trim() === "" ){
-        bool_check = true;
-        onError(s_email, "Email cannot be empty");
-    }else if(s_email.value.trim() === emailRegex){
-        bool_check = true;
-        onError(s_email, "Email is not valid");
+    if (signUpEmail.value.trim() === "" ){
+        boolCheck = true;
+        onError(signUpEmail, "Email cannot be empty");
+    }else if(!emailRegex.test(signUpEmail.value)){
+        boolCheck = true;
+        onError(signUpEmail, "Email is not valid");
     }else{
-        onSuccess(s_email);
+        onSuccess(signUpEmail);
     }
-    if (s_pswd.value.trim() === "" ){
-        bool_check = true;
-        onError(s_pswd, "Password is required");
-    }else if (s_conpswd.value.trim() === "") {
-        bool_check = true;
-        onError(s_conpswd, "You must confirm your password");
-    }else if ( s_pswd.value.trim() === s_conpswd.value.trim()) {
-        bool_check = true;
-        onError(s_conpswd, "Your confirmed password must be the same as the password given");
+    if (registerPassword.value.trim() === "" ){
+        boolCheck = true;
+        onError(registerPassword, "Password is required");
+    }else if (!passwordRegex.test(registerPassword.value)){
+        boolCheck = true;
+        onError(registerPassword, "Password must be a valid");
+    }else {
+        onSuccess (registerPassword)
+    }
+    if (!passwordRegex.test(registerPasswordConfirm.value)){
+        boolCheck = true;
+        onError(registerPasswordConfirm, "Password must be a valid");
+    }else if (registerPasswordConfirm.value.trim() === "") {
+        boolCheck = true;
+        onError(registerPasswordConfirm, "You must confirm your password");
+    }else if ( registerPassword.value.trim() !== registerPasswordConfirm.value.trim()) {
+        boolCheck = true;
+        onError(registerPasswordConfirm, "Your confirmed password must be the same as the password given");
     } else {
-        onSuccess(s_pswd); 
+        onSuccess(registerPasswordConfirm); 
     }
-}*/
+}
 
 function onSuccess (input){
     let parent = input.parentElement;
