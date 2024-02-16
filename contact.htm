@@ -51,33 +51,39 @@
             </div>
             <div class="message">
                 <div class="inputs">
-                    <table>
-                        <tr>
-                            <td> 
-                                <label for="name">NAME</label>
-                            </td>
-                            <td>
-                                <input class="input" type="text" name="name" id="name">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="email">EMAIL</label>
-                            </td>
-                            <td>
-                                <input class="input" type="email" name="email" id="email">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="message">MESSAGE</label>
-                            </td>
-                            <td>
-                                <input class="input" type="text" name="message" id="message">
-                            </td>
-                        </tr>
-                    </table>  
-                    <button type="submit">Send</button>                  
+                    <form action="" id="contact-me">
+                        <table>
+                            <tr>
+                                <td > 
+                                    <label for="name">NAME</label>
+                                </td>
+                                <td>
+                                    <input class="input" type="text" name="name" id="name">
+                                    <small></small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="email">EMAIL</label>
+                                </td>
+                                <td>
+                                    <input class="input" type="email" name="email" id="email">
+                                    <small></small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="message">MESSAGE</label>
+                                </td>
+                                <td>
+                                    <input class="input" type="text" name="message" id="message">
+                                    <small></small>
+                                </td>
+                            </tr>
+                        </table>  
+                        <button type="submit" id="submit">Send</button>    
+                    </form>
+                                  
                 </div>
             </div>
             
@@ -100,4 +106,5 @@
 </body>
 <script src="https://kit.fontawesome.com/1f8d4d3fe1.js" crossorigin="anonymous"></script>
 <script src="./js/nav.js"></script>
+<script src="./js/contact.js"></script>
 </html>

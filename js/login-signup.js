@@ -113,16 +113,16 @@ function validateInput_register () {
 
 function onSuccess (input){
     let parent = input.parentElement;
-    let err = parent.querySelector(".small");
-    err.style.visibility = "hidden";
+    let err = parent.querySelector("small");
+    err.style.display = "none";
     err.innerText = "";
     parent.classList.add("success");
     parent.classList.remove("error");
 }
 function onError (input, message){
     let parent = input.parentElement;
-    let err = parent.querySelector(".small");
-    err.style.visibility = "visible";
+    let err = parent.querySelector("small");
+    err.style.display = "block";
     err.innerText = message;
     parent.classList.add("error");
     parent.classList.remove("success");
