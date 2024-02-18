@@ -160,7 +160,7 @@
         </div>
         <div class="update-image-file-input">
             <label for="update-input-file"  id="update-drop-area">
-                <input type="file" accept="image/*" id="input-file" hidden>
+                <input type="file" accept="image/*" id="update-input-file" hidden>
                 <div class="update-image-view">
                     <i class="fa-solid fa-cloud-arrow-up"></i>
                     <p>Drag and drop or click here<br>to upload new image</p>
@@ -176,23 +176,6 @@
 <script src="https://kit.fontawesome.com/1f8d4d3fe1.js" crossorigin="anonymous"></script>
 <script src="./js/dashboard-blog.js"></script>
 <script>
-    function update(){
-        let header = document.querySelector('header');
-        header.classList.toggle('active');
-        let main = document.querySelector('main');
-        main.classList.toggle('active');
-        let popUp = document.querySelector('.update-blog-popup');
-        popUp.classList.toggle('active');
-    }
-    const dropArea = document.getElementById("update-drop-area");
-    const inputFile = document.getElementById("input-file");
-    const imageView = document.querySelector(".update-image-view");
-    inputFile.addEventListener("change", uploadImage);
-    function uploadImage () {
-        let imgLink = URL.createObjectURL(inputFile.files[0]);
-        imageView.style.backgroundImage = `url(${imgLink})`;
-        imageView.textContent = "";
-        imageView.style.border = 0;
-    }
+    
 </script>
 </html>

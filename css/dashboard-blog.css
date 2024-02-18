@@ -129,6 +129,8 @@ table tr td{
     border-radius: 20px;
     border: 2px dashed #bbb5ff;
     background-color: #9c9c9c;
+    background-size: cover;
+    background-position: center;
 }
 .image-view i{
     font-size: 100px;
@@ -217,6 +219,8 @@ table tr td{
     border-radius: 20px;
     border: 2px dashed #bbb5ff;
     background-color: #9c9c9c;
+    background-position: center;
+    background-size: cover;
 }
 .update-image-view i{
     font-size: 100px;
