@@ -254,6 +254,9 @@ main.active {
     filter: blur(30px);
     background-color: #030C11;
 }
+iframe {
+    display: none;
+}
 /*responsive*/
 
 

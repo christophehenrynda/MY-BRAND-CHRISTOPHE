@@ -1,3 +1,4 @@
+// showing pop ups
 function toggle(){
     let header = document.querySelector('header');
     header.classList.toggle('active');
@@ -14,12 +15,15 @@ function update(){
     let popUp = document.querySelector('.update-blog-popup');
     popUp.classList.toggle('active');
 }
+
+//drag and drop
+
 const dropArea = document.getElementById("update-drop-area");
 const inputFile = document.getElementById("update-input-file");
 const imageView = document.querySelector(".update-image-view");
 inputFile.addEventListener("change", uploadImage);
 function uploadImage () {
-    let imgLink = URL.createObjectURL(inputFile.files[0]);
+    var updateImgLink = URL.createObjectURL(inputFile.files[0]);
     imageView.style.backgroundImage = `url(${imgLink})`;
     imageView.textContent = "";
     imageView.style.border = 0;
@@ -33,14 +37,15 @@ dropArea.addEventListener("drop", (e) => {
     uploadImage();
 });
 const addDropArea = document.getElementById("drop-area");
-    const addInputFile = document.getElementById("input-file");
-    const addImageView = document.querySelector(".image-view");
-    addInputFile.addEventListener("change", addBlog);
-    function addBlog () {
-        let imgLink = URL.createObjectURL(addInputFile.files[0]);
-        addImageView.style.backgroundImage = `url(${imgLink})`;
-        addImageView.textContent = "";
-        addImageView.style.border = 0;
+const addInputFile = document.getElementById("input-file");
+const addImageView = document.querySelector(".image-view");
+var addImgLink;
+addInputFile.addEventListener("change", addBlog);
+function addBlog () {
+    addImgLink = URL.createObjectURL(addInputFile.files[0]);
+    addImageView.style.backgroundImage = `url(${imgLink})`;
+    addImageView.textContent = "";
+    addImageView.style.border = 0;
 }
 addDropArea.addEventListener("dragover", (e) => {
     e.preventDefault();
@@ -50,3 +55,24 @@ addDropArea.addEventListener("drop", (e) => {
     addInputFile.files = e.dataTransfer.files;
     addBlog();
 });
+
+// validation and storage
+const blogHeader = document.getElementById ('blog-title-input');
+const blogDescription = document.getElementById ('blog-description-input');
+const blogUrl = addImgLink;
+document.querySelector(".add-blog-button").addEventListener("click", (event) => {
+    event.preventDefault();
+    addBlogToStorage();
+})
+
+function addBlogToStorage (){
+    let blog = {
+        header: blogHeader.value,
+        blogDescription: blogDescription.value,
+        blogUrl: blogUrl
+    }
+    let blogArray = [];
+    if(localStorage.getItem("blogs")){
+
+    }
+}

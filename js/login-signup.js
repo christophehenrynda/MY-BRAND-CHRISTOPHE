@@ -249,30 +249,3 @@ if (registerationForm){
 
 
 
-/*let store = () => {
-    localStorage.setItem("uname", uName.value);
-    localStorage.setItem("email", signUpEmail.value);
-    if (registerPassword.value === registerPasswordConfirm.value) {
-        localStorage.setItem("password", registerPassword.value);
-        x.reset();
-        y.reset();
-
-    } else {
-        window.alert("Please enter a password again")
-    }
-}
-let check = () => {
-    //stored credentials
-    let storeName = localStorage.getItem("uname");
-    let storedEmail = localStorage.getItem("email");
-    let storedPassword = localStorage.getItem("password");
-
-    //login credentials
-    if (storedEmail === loginEmail.value && storedPassword === loginPassword.value)  {
-        window.location.href = "./dashboard.htm";
-        x.reset();
-        y.reset();
-    } else {
-        window.alert("Please enter correct email and password")
-    }
-}*/

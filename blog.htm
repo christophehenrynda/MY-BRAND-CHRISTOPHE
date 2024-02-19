@@ -400,6 +400,19 @@
                         delectus quos exercitationem ea rerum.
                     </p>
                 </div>
+                <div class="blog-popup-comment-section" id="commentSection">
+                    <div class="comment" >
+                        <div class="comment-username">
+                            <b>John Doe</b>
+                        </div>
+                        <div class="comment-comment">
+                            <p>This is classic bruh</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-comment">
+                    <input type="text" name="comment" id="comment-input" placeholder="Add comment">
+                </div>
             </div>
         </div>
     </div>
@@ -407,4 +420,75 @@
 <script src="https://kit.fontawesome.com/1f8d4d3fe1.js" crossorigin="anonymous"></script>
 <script src="./js/nav.js"></script>
 <script src="./js/blog.js"></script>
+<script>
+    const name = "John Doe";
+    const words = document.getElementById("comment-input");
+    const commentSection = document.getElementById("commentSection");
+    class UserComment {
+        constructor(username, comment){
+            this.username = username;
+            this.comment = comment;
+        }
+    }
+    function displayComments (){
+        if(localStorage.getItem("blogComment")){
+            commentArray = JSON.parse(localStorage.getItem("blogComment")) || [];
+            for(let i = 0; i < commentArray.length; i++) {
+                let codes = 
+        `
+        <div class="comment">
+            <div class="comment-username">
+                <b>${commentArray[i].username}</b>
+            </div>
+            <div class="comment-comment">
+                <p>${commentArray[i].comment}</p>
+            </div>
+        </div>
+        `;
+        
+        commentSection.innerHTML += codes;
+            }
+
+        }
+    }
+    displayComments();
+    words.addEventListener("keyup", (event) => {
+        addBlogComment();
+        
+    })
+    function addBlogComment (){
+        if (event.keyCode === 13){
+            if(words.value.trim() !== ""){
+                let commentArray = [];
+                if(localStorage.getItem("blogComment")){
+                    commentArray = JSON.parse(localStorage.getItem("blogComment")) || [];
+                    
+
+                }
+                const userComment = new UserComment(name, words.value);
+                commentArray.push(userComment);
+                localStorage.setItem("blogComment", JSON.stringify(commentArray));
+                let codes = 
+                `
+                <div class="comment">
+                    <div class="comment-username">
+                        <b>${userComment.username}</b>
+                    </div>
+                    <div class="comment-comment">
+                        <p>${userComment.comment}</p>
+                    </div>
+                </div>
+                `;
+                
+                commentSection.innerHTML += codes; 
+                console.log(commentSection);
+                words.value = "";
+            }else {
+                window.alert("booo");
+            }
+            
+        }
+    }
+
+</script>
 </html>
