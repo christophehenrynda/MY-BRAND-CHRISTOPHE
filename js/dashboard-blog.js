@@ -43,7 +43,7 @@ var addImgLink;
 addInputFile.addEventListener("change", addBlog);
 function addBlog () {
     addImgLink = URL.createObjectURL(addInputFile.files[0]);
-    addImageView.style.backgroundImage = `url(${imgLink})`;
+    addImageView.style.backgroundImage = `url(${addImgLink})`;
     addImageView.textContent = "";
     addImageView.style.border = 0;
 }
@@ -60,19 +60,36 @@ addDropArea.addEventListener("drop", (e) => {
 const blogHeader = document.getElementById ('blog-title-input');
 const blogDescription = document.getElementById ('blog-description-input');
 const blogUrl = addImgLink;
+const blogSection = document.getElementById ('iframe-section').contentDocument.querySelector ('.blog-cards');
+
+
 document.querySelector(".add-blog-button").addEventListener("click", (event) => {
-    event.preventDefault();
     addBlogToStorage();
+
 })
-
-function addBlogToStorage (){
-    let blog = {
-        header: blogHeader.value,
-        blogDescription: blogDescription.value,
-        blogUrl: blogUrl
+class Blog  {
+    constructor (header, blogDescription, blogUrl){
+        this.header = header;
+        this.blogDescription = blogDescription;
+        this.blogUrl = blogUrl;
     }
+    
+}
+function addBlogToStorage (){
     let blogArray = [];
-    if(localStorage.getItem("blogs")){
-
+    if(blogHeader.value.trim() !== ""){
+        if(localStorage.getItem("blogs")){
+            blogArray =JSON.parse(localStorage.getItem("blogs")) || [];
+        }
+        const fr= new FileReader();
+        fr.readAsDataURL(addInputFile.files[0]);
+        const url = fr.result;
+        let blog = new Blog(blogHeader.value, blogDescription.value, addImgLink);
+        blogArray.push(blog);
+        localStorage.setItem("blogs", JSON.stringify(blogArray));
+    }else {
+        window.alert("Failed")
     }
 }
+
+
