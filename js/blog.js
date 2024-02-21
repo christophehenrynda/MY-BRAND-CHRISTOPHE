@@ -6,6 +6,21 @@ function pop(){
     let popup = document.querySelector('.blog-popup');
     popup.classList.toggle('disactive');
 }
+//displaying comments
+document.querySelector(".blog-card").addEventListener('click', (event) => {
+    displayBlog();
+})
+function displayBlog(){
+    const parent = event.target;
+    const imageSection = parent.querySelector(".blog-image");
+    const src = imageSection.querySelector("img").src;
+    const blogHeader = parent.querySelector(".blog-describe").querSelector(".blog-caption").querySelector("p");
+    const blogPopup = document.querySelector(".blog-up");
+    const blogPopupImage = blogPopup.querySelector(".blog-popup-image").querySelector("img");
+    const blogPopupHeader = blogPopup.querySelector(".lower-section").querySelector(".blog-popup-caption").querySelector(".blog-popup-caption-header").querySelector("h3");
+    const blogPopupDescription = blogPopup.querySelector(".lower-section").querySelector(".blog-popup-caption").querySelector(".blog-popup-description").blogPopup.querySelector("p");
+    console.log(blogPopupDescription.value);
+}
 
 //adding comments to blog
 const name = "John Doe";

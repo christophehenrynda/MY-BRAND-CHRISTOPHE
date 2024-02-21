@@ -40,7 +40,7 @@ const addDropArea = document.getElementById("drop-area");
 const addInputFile = document.getElementById("input-file");
 const addImageView = document.querySelector(".image-view");
 var addImgLink;
-addInputFile.addEventListener("change", addBlog);
+addInputFile.addEventListener("change", (event) => {addBlog()});
 function addBlog () {
     addImgLink = URL.createObjectURL(addInputFile.files[0]);
     addImageView.style.backgroundImage = `url(${addImgLink})`;
@@ -87,6 +87,10 @@ function addBlogToStorage (){
         let blog = new Blog(blogHeader.value, blogDescription.value, addImgLink);
         blogArray.push(blog);
         localStorage.setItem("blogs", JSON.stringify(blogArray));
+        blogHeader.value = "";
+        blogDescription.value = "";
+        addInputFile.value = "";
+        addImageView.style.backgroundImage = "";
     }else {
         window.alert("Failed")
     }

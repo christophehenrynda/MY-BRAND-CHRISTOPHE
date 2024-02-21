@@ -88,6 +88,7 @@ main {
     border-radius: 20px;
     padding: 20px;
     max-width: 370px;
+    overflow: auto;
 }
 .blogs-content {
     border-bottom: 1px solid #fff;
