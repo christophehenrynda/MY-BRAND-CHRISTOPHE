@@ -20,9 +20,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     sendMessage();
     
-    
-        
-    
+      
 })
 function sendMessage (){
     if(checkContacts()){
