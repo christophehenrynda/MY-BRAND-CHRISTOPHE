@@ -8,7 +8,7 @@ function pop(){
 }
 //displaying comments
 document.querySelector(".blog-card").addEventListener('click', (event) => {
-    displayBlog();
+    displayBlogs();
 })
 function displayBlogs(index){
     
@@ -51,40 +51,42 @@ function displayBlogs(index){
 
 //adding comments to blog
 const name = "John Doe";
-    const words = document.getElementById("comment-input");
-    const commentSection = document.getElementById("commentSection");
-    
-    class UserComment {
-        constructor(username, comment){
-            this.username = username;
-            this.comment = comment;
-        }
+const words = document.getElementById("comment-input");
+const commentSection = document.getElementById("commentSection");
+const blogCommentNumber = document.querySelector(".blog-popup").querySelector(".lower-section").querySelector(".blog-popup-likes-comments").querySelector(".blog-popup-comments").querySelector("p");
+class UserComment {
+    constructor(username, comment){
+        this.username = username;
+        this.comment = comment;
     }
-    function displayComments (index){
-        if(localStorage.getItem("blogs")){
-            let blogsArr = JSON.parse(localStorage.getItem("blogs")) || [];
-            let commentArray = blogsArr[index].comments;
-             
-            for(let i = 0; i < commentArray.length; i++) {
-                let codes = 
-                    `
-                    <div class="comment">
-                        <div class="comment-username">
-                            <b>${commentArray[i].username}</b>
-                        </div>
-                        <div class="comment-comment">
-                            <p>${commentArray[i].comment}</p>
-                        </div>
+}
+function displayComments (index){
+    if(localStorage.getItem("blogs")){
+        let blogsArr = JSON.parse(localStorage.getItem("blogs")) || [];
+        let commentArray = blogsArr[index].comments;
+        blogCommentNumber.innerHTML = commentArray.length;
+        commentSection.innerHTML ="";
+        for(let i = 0; i < commentArray.length; i++) {
+            let codes = 
+                `
+                <div class="comment">
+                    <div class="comment-username">
+                        <b>${commentArray[i].username}</b>
                     </div>
-                    `;
+                    <div class="comment-comment">
+                        <p>${commentArray[i].comment}</p>
+                    </div>
+                </div>
+                `;
         
-                commentSection.innerHTML += codes;
-            }
-            //document.querySelector('.blog-comments').innerHTML = commentsNum.length; //display the number of comments on load
+            commentSection.innerHTML += codes;
         }
-        
-        
+
+        //document.querySelector('.blog-comments').innerHTML = commentsNum.length; //display the number of comments on load
     }
+        
+        
+}
    
     // words.addEventListener("keyup", (event) => {
     //     addBlogComment();
@@ -118,8 +120,6 @@ const name = "John Doe";
                 // document.querySelector('.blog-comments').innerHTML = commentsNum.length; // display number of comments giving comment
                 displayComments(index);
                 words.value = "";
-            }else {
-                window.alert("booo");
             }
             
         }
