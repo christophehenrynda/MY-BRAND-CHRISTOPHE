@@ -5,9 +5,11 @@ class Auth {
         this.validateAuth(auth);
     }
     validateAuth(auth) {
-        if (auth != 1) {
+        if (auth != "admin") {
             window.location.replace("./login-sign up.htm");
+            
         }else {
+            
             document.querySelector("body").style.display = "block";
         }
     }

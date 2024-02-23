@@ -52,6 +52,8 @@ main {
 }
 table th td {
     font-weight: 800;
+    display: flex;
+    justify-content: space-evenly;
 }
 table tr td{
     padding-right: 50px;

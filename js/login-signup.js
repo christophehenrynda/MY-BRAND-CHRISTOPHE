@@ -8,8 +8,8 @@ const signUpEmail = document.getElementById('s_email');
 const registerPassword = document.getElementById('s_pswd');
 const registerPasswordConfirm = document.getElementById('conpswd');
 //const form = document.getElementById('form');
-const loginEmail = document.getElementById('l_email');
-const loginPassword= document.getElementById('l_pswd');
+const emailField = document.getElementById('l_email');
+const passwordField = document.getElementById('l_pswd');
 const loginCheck= document.getElementById('l_check');
 let boolCheck = false;
 const emailRegex = /^[a-zA-Z0-9.!#$%&'"+/=?^_'{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -31,6 +31,27 @@ function login () {
 }
 
 
+let loginEmail = {
+    value: undefined,
+    type: 'email'
+
+};
+let loginPassword = {
+    value: undefined,
+    type: 'password'
+};
+
+emailField.addEventListener('change', (event) => {
+    loginEmail.value = event.target.value;
+    console.log('Email: ',loginEmail);
+})
+
+passwordField.addEventListener('change', (event) => {
+    loginPassword.value = event.target.value;
+    console.log('Password: ',loginPassword);
+})
+
+
 
 class Login {
     constructor(form, fields) {
@@ -44,19 +65,39 @@ class Login {
 
         this.form.addEventListener('submit', (event) => {
             event.preventDefault();
-            var error = 0;
-            self.fields.forEach((field) => {
-                const input = field;
-                if (!self.validateFields(input)) {
-                    error++;
-                } 
+            let error = 0;
+            // self.fields.forEach((field) => {
+            //     const input = field;
+            //     if (!self.validateFields(input)) {
+            //         error++;
+            //     } 
                   
-            });
+            // });
+            
+            if (!self.validateFields(loginEmail)) error++;
+            if (!self.validateFields(loginPassword)) error++; 
+
             if(error == 0){
                 //API
-                if (this.check()) {
-                    localStorage.setItem("auth",1);
-                    this.form.submit();
+                if (this.check(loginPassword.value, loginEmail.value)) {
+                    if (localStorage.getItem("user")){
+                        let usersArray = JSON.parse(localStorage.getItem("user")) || [];
+                        
+                        if (loginPassword.value === usersArray.find(user => user.username === "admin").password && loginEmail.value == usersArray.find(user => user.username === "admin").email){
+                            // localStorage.setItem("auth", "admin");
+                            // this.form.submit();
+                            // window.location.replace("./dashboard.htm");
+
+                            console.log("Logged IN")
+                            
+                        }else {
+                            // localStorage.setItem("auth","user");
+                            // window.location.replace("./index.htm");     
+                            // this.form.submit();
+                            
+                        }
+                    }
+                    
                 }else {
                     x.reset();  
                     y.reset();
@@ -68,15 +109,19 @@ class Login {
         });
     }
     validateFields(field){
-        if (field.value.trim() == '') {
+        if(field.value === undefined) {
+            this.onError(field, `${field.type}  is required`);
+            return false;
+        };
+        if (field.value.trim() === '') {
             this.onError(field, "This field is required");
             return false;
-        }else if (field.type == "email") {
+        }else if (field.type === "email") {
             if (!emailRegex.test(field.value)) {
                 this.onError(field, "Enter a valid email address");
                 return false; 
             }else {
-                this.onSuccess(field);
+                // this.onSuccess(field);
                 return true;
             }
         }else if (field.type == "password") {
@@ -84,20 +129,20 @@ class Login {
                 this.onError(field, "Please enter a valid password");
                 return false
             }else {
-                this.onSuccess(field);
+                // this.onSuccess(field);
                 return true;
             }
         }
         
     }
-    onSuccess (input){
-        let parent = input.parentElement;
-        let err = parent.querySelector("small");
-        err.style.display = "none";
-        err.innerText = "";
-        parent.classList.add("success");
-        parent.classList.remove("error");
-    }
+    // onSuccess (input){
+    //     let parent = input.parentElement;
+    //     let err = parent.querySelector("small");
+    //     err.style.display = "none";
+    //     err.innerText = "";
+    //     parent.classList.add("success");
+    //     parent.classList.remove("error");
+    // }
     onError (input, message){
         let parent = input.parentElement;
         let err = parent.querySelector("small");
@@ -106,21 +151,35 @@ class Login {
         parent.classList.add("error");
         parent.classList.remove("success");
     }
-    check ()  {
-        //stored credentials
-        let user = JSON.parse(localStorage.getItem("user")) || [];
-        
-        for (let i = 0; i < user.length; i++) {
-            const element = user[i];
-            //login credentials
-            if (element.email === loginEmail.value && element.password === loginPassword.value)  {
-                //window.location.href = "./dashboard.htm";
+    check (email, password)  {
+            //stored credentials
+        if (localStorage.getItem("user")){
+            let users = JSON.parse(localStorage.getItem("user")) || [];
+
+            const found = users.find(user => user.email === email && user.password === password);
+
+            if(found) {
+                window.location.replace("./dashboard.htm");
                 x.reset();
                 y.reset();
-                return true;
-            } 
+            }
+        
+            // for (let i = 0; i < user.length; i++) {
+            //     const element = user[i];
+            //     //login credentials
+            //     if (element.email === email && element.password === password)  {
+            //         //window.location.href = "./dashboard.htm";
+            //         x.reset();
+            //         y.reset();
+            //         return true;
+            //     } 
+            // }
+            
+            return false;
+        }else{
+            window.location.replace("./login-signup.htm");
+            return false;
         }
-        return false;
     }
     
         
@@ -145,7 +204,7 @@ class SignUp {
 
         this.form.addEventListener('submit', (event) => {
             event.preventDefault();
-            var err = 0;
+            let err = 0;
             self.fields.forEach((field) => {
                 const input = field;
                 if (!self.validateFields(input)) {
@@ -154,8 +213,12 @@ class SignUp {
             });
             if (err == 0) {
                 //API
-                this.store();
-                window.location.href = window.location.href;
+                if(this.store) {
+                    this.store();
+                    window.location.href = window.location.href;
+                }
+
+                
                 
             }
         });
@@ -219,25 +282,28 @@ class SignUp {
             password: registerPassword.value,
 
         }
-        let usersArray = [];
+        let usersArray = [{
+                            username: "admin",
+                            email: "admin@example.com",
+                            password: "Street!123",
+                            }];
         if (localStorage.getItem('user')){
-            let arr = JSON.parse(localStorage.getItem('user')) || [];
-            for (let i=0; i< arr.length; i++) {
-            let user = {
-                username: arr[i].username,
-                email: arr[i].email,
-                password: arr[i].password
-            }
+            usersArray = JSON.parse(localStorage.getItem('user')) || [];    
+        }
+        for (let i = 0; i < usersArray.length; i++) {
+            if(usersArray[i].username == user.username || usersArray[i].email == user.email){
+                this.onError(uName, "Try another username");
+                this.onError(signUpEmail, "Try another email");
+                return false;
             }
             
-            usersArray.push(user);
         }
-       
         usersArray.push(user);
 
         localStorage.setItem("user", JSON.stringify(usersArray));
         x.reset();
         y.reset();
+        return true;
     }
 
 }

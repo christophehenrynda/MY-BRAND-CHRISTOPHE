@@ -10,32 +10,61 @@ function pop(){
 document.querySelector(".blog-card").addEventListener('click', (event) => {
     displayBlog();
 })
-function displayBlog(){
-    const parent = event.target;
-    const imageSection = parent.querySelector(".blog-image");
-    const src = imageSection.querySelector("img").src;
-    const blogHeader = parent.querySelector(".blog-describe").querSelector(".blog-caption").querySelector("p");
-    const blogPopup = document.querySelector(".blog-up");
+function displayBlogs(index){
+    
+    const blogPopup = document.querySelector(".blog-popup");
     const blogPopupImage = blogPopup.querySelector(".blog-popup-image").querySelector("img");
     const blogPopupHeader = blogPopup.querySelector(".lower-section").querySelector(".blog-popup-caption").querySelector(".blog-popup-caption-header").querySelector("h3");
-    const blogPopupDescription = blogPopup.querySelector(".lower-section").querySelector(".blog-popup-caption").querySelector(".blog-popup-description").blogPopup.querySelector("p");
-    console.log(blogPopupDescription.value);
+    const blogPopupDescription = blogPopup.querySelector(".lower-section").querySelector(".blog-popup-caption").querySelector(".blog-popup-description").querySelector("p");
+    const blogLikesNumber = blogPopup.querySelector(".lower-section").querySelector(".blog-popup-likes-comments").querySelector(".blog-popup-like").querySelector("p");
+    const blogCommentNumber = blogPopup.querySelector(".lower-section").querySelector(".blog-popup-likes-comments").querySelector(".blog-popup-comments").querySelector("p");
+    const commentSections = blogPopup.querySelector(".lower-section").querySelector(".blog-popup-caption").querySelector("#commentSection");
+    const commentInput = blogPopup.querySelector(".lower-section").querySelector(".blog-popup-caption").querySelector(".add-comment").querySelector("#comment-input");
+    if (localStorage.getItem("blogs")){
+        let blogsArray = JSON.parse(localStorage.getItem("blogs"));
+
+        blogPopupImage.src = `url(${blogsArray[index].blogUrl})`;
+        blogPopupHeader.innerHTML = blogsArray[index].header;
+        blogPopupDescription.innerHTML = blogsArray[index].blogDescription;
+        blogLikesNumber.innerHTML = blogsArray[index].likes.length;
+        blogCommentNumber.innerHTML = blogsArray[index].comments.length;
+        displayComments(index);
+        commentInput.addEventListener ("keyup", (event) => {addBlogComment(index)})
+        for(let i = 0; i < blogCommentNumber.length; i++) {
+            let codes = 
+                `
+                <div class="comment">
+                    <div class="comment-username">
+                        <b>${commentArray[i].username}</b>
+                    </div>
+                    <div class="comment-comment">
+                        <p>${commentArray[i].comment}</p>
+                    </div>
+                </div>
+                `;
+    
+            commentSections.innerHTML += codes;
+        }
+    }
+    pop();
 }
 
 //adding comments to blog
 const name = "John Doe";
     const words = document.getElementById("comment-input");
     const commentSection = document.getElementById("commentSection");
-    const commentsNum = document.querySelectorAll('.comment'); // comments array
+    
     class UserComment {
         constructor(username, comment){
             this.username = username;
             this.comment = comment;
         }
     }
-    function displayComments (){
-        if(localStorage.getItem("blogComment")){
-            commentArray = JSON.parse(localStorage.getItem("blogComment")) || [];
+    function displayComments (index){
+        if(localStorage.getItem("blogs")){
+            let blogsArr = JSON.parse(localStorage.getItem("blogs")) || [];
+            let commentArray = blogsArr[index].comments;
+             
             for(let i = 0; i < commentArray.length; i++) {
                 let codes = 
                     `
@@ -51,44 +80,43 @@ const name = "John Doe";
         
                 commentSection.innerHTML += codes;
             }
-            document.querySelector('.blog-comments').innerHTML = commentsNum.length; //display the number of comments on load
+            //document.querySelector('.blog-comments').innerHTML = commentsNum.length; //display the number of comments on load
         }
         
         
     }
-    displayComments();
-    words.addEventListener("keyup", (event) => {
-        addBlogComment();
+   
+    // words.addEventListener("keyup", (event) => {
+    //     addBlogComment();
         
-    })
-    function addBlogComment (){
+    // })
+    function addBlogComment (index){
         if (event.keyCode === 13){
-            if(words.value.trim() !== ""){
-                let commentArray = [];
-                if(localStorage.getItem("blogComment")){
-                    commentArray = JSON.parse(localStorage.getItem("blogComment")) || [];
-                    
-
+            if(words.value.trim() != ""){
+                let blogs = [];
+                if(localStorage.getItem("blogs")){
+                    blogs = JSON.parse(localStorage.getItem("blogs")) || [];
                 }
+                let commentArray = blogs[index].comments;
                 const userComment = new UserComment(name, words.value);
                 commentArray.push(userComment);
-                localStorage.setItem("blogComment", JSON.stringify(commentArray));
-                let codes = 
-                `
-                <div class="comment">
-                    <div class="comment-username">
-                        <b>${userComment.username}</b>
-                    </div>
-                    <div class="comment-comment">
-                        <p>${userComment.comment}</p>
-                    </div>
-                </div>
-                `;
+                localStorage.setItem("blogs", JSON.stringify(blogs));
+                // let codes = 
+                // `
+                // <div class="comment">
+                //     <div class="comment-username">
+                //         <b>${userComment.username}</b>
+                //     </div>
+                //     <div class="comment-comment">
+                //         <p>${userComment.comment}</p>
+                //     </div>
+                // </div>
+                // `;
                 
-                commentSection.innerHTML += codes; 
+                // commentSection.innerHTML += codes; 
                 console.log(commentSection);
-                document.querySelector('.blog-comments').innerHTML = commentsNum.length; // display number of comments giving comment
-
+                // document.querySelector('.blog-comments').innerHTML = commentsNum.length; // display number of comments giving comment
+                displayComments(index);
                 words.value = "";
             }else {
                 window.alert("booo");
@@ -107,34 +135,34 @@ const hours = currentDate.getHours();
 const minutes = currentDate.getMinutes(); 
 const seconds = currentDate.getSeconds(); 
 document.addEventListener("DOMContentLoaded", (event) => {
-    displayBlogs();
+    displayBlogOnPage();
 })
-function displayBlogs() {
+function displayBlogOnPage() {
     if(localStorage.getItem("blogs")) {
         let blogs = JSON.parse(localStorage.getItem("blogs"))||[];
 
         for (let i = 0; i < blogs.length; i++) {
             let codes = 
                 `
-                <div class="blog-card" onClick="pop()">
+                <div class="blog-card" onClick="displayBlogs(${i})">
                     <div class="blog-image">
-                        <img src="${blogs[i].blogUrl}" alt="some pics">
+                        <img src="${(blogs[i].blogUrl)?blogs[i].blogUrl:"resources/image-image.jpg"}" alt="some pics">
                     </div>
                     <div class="blog-describe">
                         <div class="blog-caption">
-                            <P>${blogs[i].blogDescription}</P>
+                            <P>${blogs[i].header}</P>
                         </div>
                         <div class="blog-describe-stat">
                             <div class="blog-likes">
                                 <i class="fa-solid fa-heart" style="color: #f18805;"></i>
-                                <p>85</p>
+                                <p>${blogs[i].likes.length}</p>
                             </div>
                             <div class="blog-comments">
                                 <i class="fa-solid fa-comment" style="color: #87a330;"></i>
-                                <p>56</p>
+                                <p>${blogs[i].comments.length}</p>
                             </div>
                             <div class="blog-time">
-                                <p>${year}-${month}-${day}</p>
+                                <p>${new Date(blogs[i].date).getFullYear()}-${new Date(blogs[i].date).getMonth()+1}-${new Date(blogs[i].date).getDate()}</p>
                             </div>
                         </div>
                     
